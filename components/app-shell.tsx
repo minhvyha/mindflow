@@ -147,8 +147,8 @@ export function AppShell() {
     <div className="relative min-h-screen max-w-md mx-auto overflow-hidden">
       {/* Gradient Background */}
       <div className="fixed inset-0 pointer-events-none -z-10" aria-hidden="true">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F7D27C]/15 via-[#faf9f7] to-[#F6B6C1]/15" />
-        <div className="absolute top-0 left-0 w-64 h-64 bg-[#D8D4F2]/20 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#A7C7E7]/15 via-[#faf9f7] to-[#F6B6C1]/15" />
+        <div className="absolute top-0 left-0 w-64 h-64 bg-[#A7C7E7]/20 rounded-full blur-3xl" />
         <div className="absolute top-1/4 right-0 w-48 h-48 bg-[#A7C7E7]/15 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-1/4 w-56 h-56 bg-[#F6B6C1]/15 rounded-full blur-3xl" />
       </div>

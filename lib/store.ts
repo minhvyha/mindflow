@@ -56,11 +56,11 @@ export const CATEGORY_CONFIG: Record<Category, { label: string; color: string; b
 }
 
 export const CATEGORY_BADGE_COLORS: Record<Category, string> = {
-  urgent: "bg-app-red text-foreground",
-  "mental-load": "bg-app-yellow text-foreground",
-  "emotional-weight": "bg-app-blue text-foreground",
-  growth: "bg-app-green text-foreground",
-  "let-go": "bg-app-purple text-foreground",
+  urgent: "bg-app-red",
+  "mental-load": "bg-app-yellow",
+  "emotional-weight": "bg-app-blue",
+  growth: "bg-app-green",
+  "let-go": "bg-app-purple",
 }
 
 export const CATEGORY_TASK_COLORS: Record<Category, string> = {

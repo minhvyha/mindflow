@@ -18,8 +18,8 @@ export function SortingRoom({ thoughts, onThoughtClick }: SortingRoomProps) {
   })).filter((g) => g.items.length > 0)
 
   return (
-    <div className="flex flex-col px-5 pt-12 pb-32 min-h-screen">
-      <h1 className="font-serif text-3xl font-bold text-foreground mb-6 text-center text-balance">
+    <div className="flex flex-col px-8 pt-12 pb-38 min-h-screen">
+      <h1 className=" text-[28px] font-bold text-foreground mb-6 text-balance text-center">
         Sorting Room
       </h1>
 
@@ -34,17 +34,17 @@ export function SortingRoom({ thoughts, onThoughtClick }: SortingRoomProps) {
         {grouped.map(({ category, config, items }) => (
           <div
             key={category}
-            className="bg-card rounded-2xl p-5 shadow-sm border border-border/40"
+            className="bg-card rounded-2xl p-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] border border-border/40"
           >
-            <div className="flex items-start justify-between mb-1">
-              <h2 className="text-xl font-bold text-foreground">{config.label}</h2>
+            <div className="flex items-start justify-between mb-2.5">
+              <h2 className="text-2xl font-medium text-foreground">{config.label}</h2>
               <span
-                className={`${CATEGORY_BADGE_COLORS[category]} text-xs font-semibold w-6 h-6 rounded-full flex items-center justify-center`}
+                className={`${CATEGORY_BADGE_COLORS[category]} text-lg font-semibold w-8 h-8 rounded-full flex items-center justify-center`}
               >
                 {items.length}
               </span>
             </div>
-            <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+            <p className="text-muted-foreground text-lg mb-2.5 leading-relaxed">
               {config.description}
             </p>
             <div className="flex flex-col gap-2.5">
@@ -55,14 +55,12 @@ export function SortingRoom({ thoughts, onThoughtClick }: SortingRoomProps) {
                   className={`${config.bg} rounded-xl px-4 py-3 flex items-center justify-between text-left transition-all hover:opacity-80 active:scale-[0.98]`}
                 >
                   <div className="pr-3">
-                    <span className="text-foreground text-sm font-semibold leading-snug block">
+                    <span className="text-foreground text-lg  leading-snug block">
                       {thought.title}
                     </span>
-                    <span className="text-muted-foreground text-xs leading-snug line-clamp-1">
-                      {thought.derivedQuote}
-                    </span>
+
                   </div>
-                  <span className="text-muted-foreground text-xs shrink-0">
+                  <span className="text-[#8A817C] text-xs shrink-0">
                     {thought.timeAgo}
                   </span>
                 </button>

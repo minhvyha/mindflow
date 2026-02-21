@@ -13,7 +13,7 @@ interface BottomNavProps {
 export function BottomNav({ active, onNavigate, onAdd }: BottomNavProps) {
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pb-4 px-4"
+      className="fixed bottom-0 left-0 right-0 z-40 flex justify-center pb-13 px-4"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -37,10 +37,10 @@ export function BottomNav({ active, onNavigate, onAdd }: BottomNavProps) {
         {/* Floating Add Button */}
         <button
           onClick={onAdd}
-          className="w-12 h-12 -mt-6 rounded-full bg-foreground text-primary-foreground flex items-center justify-center shadow-lg hover:opacity-90 active:scale-95 transition-all"
+          className="p-4 -mt-16 rounded-full bg-foreground text-primary-foreground flex items-center justify-center shadow-lg hover:opacity-90 active:scale-95 transition-all"
           aria-label="Add new thought"
         >
-          <Plus className="w-6 h-6" />
+          <Plus className="w-6 h-6"  strokeWidth={3}/>
         </button>
 
         <NavButton

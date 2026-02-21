@@ -153,9 +153,9 @@ export function TaskDetail({
         {/* Mark Complete */}
         <button
           onClick={() => onMarkComplete(task.id)}
-          className="w-full flex items-center justify-center gap-2 py-3.5 bg-foreground text-primary-foreground rounded-full text-base font-medium transition-all hover:opacity-90 active:scale-[0.98]"
+          className=" px-4 mx-auto flex items-center justify-center gap-2 py-3.5 bg-foreground text-primary-foreground rounded-full text-base font-medium transition-all hover:opacity-90 active:scale-[0.98]"
         >
-          <CheckCircle2 className="w-5 h-5" />
+          <img src="/check.svg" alt="Checkmark" className="w-5 h-5" />
           Mark as completed
         </button>
 

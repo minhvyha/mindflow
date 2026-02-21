@@ -21,8 +21,8 @@ export function ActionBoard({ tasks, onTaskClick, onToggleComplete }: ActionBoar
   const completedTasks = tasks.filter((t) => t.completed)
 
   return (
-    <div className="flex flex-col px-5 pt-12 pb-32 min-h-screen">
-      <h1 className="font-serif text-3xl font-bold text-foreground mb-6 text-center text-balance">
+    <div className="flex flex-col px-8 pt-12 pb-38 min-h-screen">
+      <h1 className="text-[28px] font-bold text-foreground mb-6 text-balance text-center">
         Action Board
       </h1>
 
@@ -34,7 +34,7 @@ export function ActionBoard({ tasks, onTaskClick, onToggleComplete }: ActionBoar
             className="flex items-center justify-between w-full mb-3"
             aria-expanded={todayOpen}
           >
-            <h2 className="text-xl font-bold text-foreground">Today</h2>
+            <h2 className="text-2xl font-medium text-foreground">Today</h2>
             {todayOpen ? (
               <ChevronDown className="w-5 h-5 text-muted-foreground" />
             ) : (
@@ -154,10 +154,10 @@ function TaskItem({
           e.stopPropagation()
           onToggleComplete(task.id)
         }}
-        className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
+        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
           task.completed
-            ? "bg-foreground border-foreground"
-            : "border-muted-foreground/50 bg-transparent"
+            ? "border-black bg-white"
+            : "border-black bg-white"
         }`}
         aria-label={`Mark "${task.title}" as ${task.completed ? "incomplete" : "complete"}`}
       >
@@ -165,7 +165,7 @@ function TaskItem({
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
             <path
               d="M2 6L5 9L10 3"
-              stroke="currentColor"
+              stroke="grey"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"

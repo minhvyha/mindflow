@@ -43,25 +43,25 @@ export function ThoughtDetail({
 
         {/* Header */}
         <div className="flex items-center justify-between mb-3">
-          <span className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+          <span className="text-lg font-semibold tracking-wider text-muted-foreground uppercase">
             Your Thought
           </span>
-          <span
-            className={`${CATEGORY_BADGE_COLORS[thought.category]} text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider`}
-          >
+            <span
+            className={`${CATEGORY_BADGE_COLORS[thought.category]} opacity-50 text-xs text-black font-semibold px-3 py-2 rounded-full uppercase tracking-wider`}
+            >
             {config.label}
           </span>
         </div>
 
         {/* Thought title */}
-        <h2 className="text-2xl font-bold text-foreground leading-snug mb-2">
+        <h2 className="text-2xl font-medium text-foreground leading-snug mb-2">
           {thought.title}
         </h2>
 
-        {/* Derived quote */}
+        {/* Derived quote
         <p className="text-muted-foreground text-sm italic leading-relaxed mb-1">
           {`\u201C${thought.derivedQuote}\u201D`}
-        </p>
+        </p> */}
 
         {/* Creation date */}
         <p className="text-muted-foreground/70 text-xs mb-6">
@@ -73,18 +73,18 @@ export function ThoughtDetail({
         </p>
 
         {/* AI Insight */}
-        <div className="bg-[#F6B6C1]/15 rounded-2xl p-5 mb-8">
+        <div className="bg-[#FFF8F2] shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-2xl p-5 mb-8">
           <div className="mb-3">
-            <SparkleIcon />
+            <img src="/ai.svg" alt="" />
           </div>
-          <p className="text-foreground text-sm leading-relaxed">{thought.aiSummary}</p>
+          <p className="text-foreground text-lg leading-relaxed">{thought.aiSummary}</p>
         </div>
 
         {/* Action Buttons */}
         <div className="flex flex-col gap-3">
           <button
             onClick={() => onReframe(thought)}
-            className="flex items-center justify-between w-full px-5 py-4 rounded-full border border-app-green/50 bg-app-green/10 text-foreground transition-all hover:bg-app-green/20 active:scale-[0.98]"
+            className="flex items-center justify-between w-full px-5 py-4 rounded-full border-2 border-solid border-app-green text-foreground transition-all hover:bg-app-green/20 active:scale-[0.98]"
           >
             <span className="text-base font-medium">Reframe gently</span>
             <Tag className="w-5 h-5 text-muted-foreground" />
@@ -92,7 +92,7 @@ export function ThoughtDetail({
 
           <button
             onClick={() => onTurnToAction(thought)}
-            className="flex items-center justify-between w-full px-5 py-4 rounded-full border border-app-yellow/50 bg-app-yellow/10 text-foreground transition-all hover:bg-app-yellow/20 active:scale-[0.98]"
+            className="flex items-center justify-between w-full px-5 py-4 rounded-full border-2 border-solid border-app-yellow text-foreground transition-all hover:bg-app-yellow/20 active:scale-[0.98]"
           >
             <span className="text-base font-medium">Turn into action</span>
             <CheckCircle2 className="w-5 h-5 text-muted-foreground" />
@@ -100,7 +100,7 @@ export function ThoughtDetail({
 
           <button
             onClick={() => onLetGo(thought)}
-            className="flex items-center justify-between w-full px-5 py-4 rounded-full border border-border bg-muted/30 text-foreground transition-all hover:bg-muted/50 active:scale-[0.98]"
+            className="flex items-center justify-between w-full px-5 py-4 rounded-full border-2 border-solid border-app-blue text-foreground transition-all hover:bg-app-blue/20 active:scale-[0.98]"
           >
             <span className="text-base font-medium">Let go</span>
             <SlidersHorizontal className="w-5 h-5 text-muted-foreground" />

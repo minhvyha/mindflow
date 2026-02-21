@@ -38,8 +38,8 @@ export function WeekOverview({ thoughts }: WeekOverviewProps) {
   const recurringThemes = ["Response anxiety", "Academic pressure", "Social uncertainty"]
 
   return (
-    <div className="flex flex-col px-5 pt-12 pb-32 min-h-screen">
-      <h1 className="font-serif text-3xl font-bold text-foreground mb-6 text-center text-balance">
+    <div className="flex flex-col px-8 pt-12 pb-38 min-h-screen">
+      <h1 className="text-[28px] font-bold text-foreground mb-6 text-balance text-center">
         Week Overview
       </h1>
 
@@ -52,12 +52,12 @@ export function WeekOverview({ thoughts }: WeekOverviewProps) {
       ) : (
         <div className="flex flex-col gap-5">
         {/* Weekly Summary Insight */}
-        <div className="bg-card rounded-2xl p-5 shadow-sm border border-border/40">
+        <div className="bg-card rounded-2xl p-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] border border-border/40">
           <div className="flex items-center gap-2 mb-3">
-            <SparkleIcon />
-            <h2 className="text-lg font-bold text-foreground">Weekly Summary Insight</h2>
+            <img src="/ai.svg" alt="" />
+            <h2 className="text-lg font-bold text-black">Weekly Summary Insight</h2>
           </div>
-          <p className="text-foreground text-base leading-relaxed mb-2">
+          <p className="text-black text-lg leading-relaxed mb-2">
             {"You've had more urgent thoughts this week."}
           </p>
           <p className="text-muted-foreground text-sm leading-relaxed">
@@ -66,8 +66,8 @@ export function WeekOverview({ thoughts }: WeekOverviewProps) {
         </div>
 
         {/* Category Distribution */}
-        <div className="bg-card rounded-2xl p-5 shadow-sm border border-border/40">
-          <h2 className="text-lg font-bold text-foreground mb-4">
+        <div className="bg-card rounded-2xl p-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] border border-border/40">
+          <h2 className="text-lg font-bold text-black mb-4">
             Category Distribution
           </h2>
           <div className="flex items-center gap-4">
@@ -99,7 +99,7 @@ export function WeekOverview({ thoughts }: WeekOverviewProps) {
                     className="w-3 h-3 rounded-full shrink-0"
                     style={{ backgroundColor: PIE_COLORS[entry.name] || "#ccc" }}
                   />
-                  <span className="text-foreground text-sm">
+                  <span className="text-foreground text-xs">
                     {entry.name} ({entry.value})
                   </span>
                 </div>
@@ -109,12 +109,12 @@ export function WeekOverview({ thoughts }: WeekOverviewProps) {
         </div>
 
         {/* Recurring Themes */}
-        <div className="bg-card rounded-2xl p-5 shadow-sm border border-border/40">
+        <div className="bg-card rounded-2xl p-6 shadow-[0_4px_4px_rgba(0,0,0,0.25)] border border-border/40">
           <div className="flex items-center gap-2 mb-4">
-            <SparkleIcon />
-            <h2 className="text-lg font-bold text-foreground">Recurring Themes</h2>
+            <img src="/ai.svg" alt="" />
+            <h2 className="text-lg font-bold text-black">Recurring Themes</h2>
           </div>
-          <ul className="flex flex-col gap-3" role="list">
+          <ul className="flex flex-col gap-3 pl-2" role="list">
             {recurringThemes.map((theme) => (
               <li key={theme} className="flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-foreground shrink-0" aria-hidden="true" />
@@ -129,12 +129,3 @@ export function WeekOverview({ thoughts }: WeekOverviewProps) {
   )
 }
 
-function SparkleIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 2L13.5 8.5L20 10L13.5 11.5L12 18L10.5 11.5L4 10L10.5 8.5L12 2Z" fill="#D8D4F2" />
-      <path d="M18 14L19 17L22 18L19 19L18 22L17 19L14 18L17 17L18 14Z" fill="#A7C7E7" />
-      <path d="M6 16L6.75 18.25L9 19L6.75 19.75L6 22L5.25 19.75L3 19L5.25 18.25L6 16Z" fill="#F6B6C1" />
-    </svg>
-  )
-}
