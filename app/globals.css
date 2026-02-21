@@ -1,0 +1,89 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #faf9f7;
+  --foreground: #3d3532;
+  --card: #ffffff;
+  --card-foreground: #3d3532;
+  --popover: #ffffff;
+  --popover-foreground: #3d3532;
+  --primary: #3d3532;
+  --primary-foreground: #faf9f7;
+  --secondary: #f5f3f0;
+  --secondary-foreground: #3d3532;
+  --muted: #f5f3f0;
+  --muted-foreground: #8a7e78;
+  --accent: #f5f3f0;
+  --accent-foreground: #3d3532;
+  --destructive: #F6B6C1;
+  --destructive-foreground: #3d3532;
+  --border: #e8e4df;
+  --input: #e8e4df;
+  --ring: #c4bdb6;
+  --radius: 1rem;
+
+  --app-purple: #D8D4F2;
+  --app-blue: #A7C7E7;
+  --app-green: #B7E4C7;
+  --app-yellow: #F7D27C;
+  --app-red: #F6B6C1;
+
+  --chart-1: #F6B6C1;
+  --chart-2: #A7C7E7;
+  --chart-3: #B7E4C7;
+  --chart-4: #F7D27C;
+  --chart-5: #D8D4F2;
+}
+
+@theme inline {
+  --font-sans: var(--font-dm-sans), 'DM Sans', sans-serif;
+  --font-serif: var(--font-playfair), 'Playfair Display', serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-app-purple: var(--app-purple);
+  --color-app-blue: var(--app-blue);
+  --color-app-green: var(--app-green);
+  --color-app-yellow: var(--app-yellow);
+  --color-app-red: var(--app-red);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
