@@ -55,7 +55,7 @@ export function TaskDetail({
         {/* Header */}
         <div className="flex items-start justify-between mb-5">
           <span
-            className={`${CATEGORY_BADGE_COLORS[task.category]} text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider`}
+            className={`${CATEGORY_BADGE_COLORS[task.category]} text-xs font-semibold opacity-50 px-3 py-1 rounded-full uppercase tracking-wider`}
           >
             {config.label}
           </span>
@@ -70,7 +70,7 @@ export function TaskDetail({
 
         {/* Task Info */}
         <div className="mb-4">
-          <span className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+          <span className="text-xs  tracking-wider text-muted-foreground uppercase">
             Task
           </span>
           {isEditing ? (
@@ -78,24 +78,24 @@ export function TaskDetail({
               type="text"
               value={editedTitle}
               onChange={(e) => setEditedTitle(e.target.value)}
-              className="w-full text-xl font-bold text-foreground mt-1 px-3 py-2 bg-muted/50 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-ring"
+              className="w-full text-lg font-medium text-foreground mt-1 px-3 py-2 bg-muted/50 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-ring"
             />
           ) : (
-            <h2 className="text-xl font-bold text-foreground mt-1">{task.title}</h2>
+            <h2 className="text-lg font-medium text-foreground mt-1">{task.title}</h2>
           )}
         </div>
 
         <div className="mb-4">
-          <span className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+          <span className="text-xs tracking-wider text-muted-foreground uppercase">
             Derived from thought
           </span>
-          <p className="text-foreground mt-1 leading-relaxed">
+          <p className="text-lg font-medium text-foreground mt-1">
             {`\u201C${task.derivedFrom}\u201D`}
           </p>
         </div>
 
         <div className="mb-6">
-          <span className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+          <span className="text-xs tracking-wider text-muted-foreground uppercase">
             Due Date
           </span>
           {isEditing ? (
@@ -112,7 +112,7 @@ export function TaskDetail({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-3 mb-5">
+        <div className="flex items-center justify-center gap-3 mb-5">
           {isEditing ? (
             <>
               <button
@@ -134,14 +134,14 @@ export function TaskDetail({
             <>
               <button
                 onClick={() => setIsEditing(true)}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-border text-foreground text-sm font-medium hover:bg-muted/50 transition-colors active:scale-[0.97]"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-solid border-[#A7C7E7] text-[#5d86af] text-sm font-medium hover:bg-muted/50 transition-colors active:scale-[0.97]"
               >
                 <Pencil className="w-4 h-4" />
                 Edit
               </button>
               <button
                 onClick={() => onDelete(task.id)}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border border-app-red/50 text-foreground text-sm font-medium hover:bg-app-red/10 transition-colors active:scale-[0.97]"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-solid border-app-red text-app-red text-sm font-medium hover:bg-app-red/10 transition-colors active:scale-[0.97]"
               >
                 <XCircle className="w-4 h-4" />
                 Delete
