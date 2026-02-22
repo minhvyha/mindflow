@@ -16,7 +16,7 @@ export interface Task {
   title: string
   category: Category
   derivedFrom: string
-  dueDate: string
+  dueDate: Date
   completed: boolean
   createdAt: string
   isToday: boolean

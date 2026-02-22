@@ -22,7 +22,7 @@ export function TaskDetail({
 }: TaskDetailProps) {
   const [isEditing, setIsEditing] = useState(false)
   const [editedTitle, setEditedTitle] = useState(task.title)
-  const [editedDueDate, setEditedDueDate] = useState(task.dueDate)
+  const [editedDueDate, setEditedDueDate] = useState<string | Date>(task.dueDate)
 
   const config = CATEGORY_CONFIG[task.category]
 
@@ -30,7 +30,7 @@ export function TaskDetail({
     onEdit({
       ...task,
       title: editedTitle,
-      dueDate: editedDueDate,
+      dueDate: typeof editedDueDate === 'string' ? new Date(editedDueDate) : editedDueDate,
     })
     setIsEditing(false)
   }
@@ -101,13 +101,13 @@ export function TaskDetail({
           {isEditing ? (
             <input
               type="text"
-              value={editedDueDate}
+              value={typeof editedDueDate === 'string' ? editedDueDate : editedDueDate?.toISOString().split('T')[0] || ''}
               onChange={(e) => setEditedDueDate(e.target.value)}
               className="w-full text-foreground font-bold mt-1 px-3 py-2 bg-muted/50 rounded-lg border border-border focus:outline-none focus:ring-2 focus:ring-ring"
               placeholder="Enter due date"
             />
           ) : (
-            <p className="text-foreground font-bold mt-1">{task.dueDate}</p>
+            <p className="text-foreground font-bold mt-1">{task.dueDate.toLocaleDateString()}</p>
           )}
         </div>
 
@@ -141,7 +141,7 @@ export function TaskDetail({
               </button>
               <button
                 onClick={() => onDelete(task.id)}
-                className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-solid border-app-red text-app-red text-sm font-medium hover:bg-app-red/10 transition-colors active:scale-[0.97]"
+                className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-solid border-app-red text-[#d86e80] text-sm font-medium hover:bg-app-red/10 transition-colors active:scale-[0.97]"
               >
                 <XCircle className="w-4 h-4" />
                 Delete

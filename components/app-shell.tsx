@@ -82,7 +82,11 @@ export function AppShell() {
 
   const handleEditTask = useCallback(
     (updatedTask: Task) => {
+      if(updatedTask.dueDate instanceof Date) {
+          updatedTask.isToday = updatedTask.dueDate.toDateString() === new Date().toDateString()
+        }
       setTasks((prev) =>
+        
         prev.map((t) => (t.id === updatedTask.id ? updatedTask : t))
       )
     },
@@ -114,7 +118,7 @@ export function AppShell() {
         title: thought.title,
         category: thought.category,
         derivedFrom: thought.derivedQuote,
-        dueDate: "TBD",
+        dueDate: new Date(), // Default to today, can be edited in TaskDetail
         completed: false,
         createdAt: new Date().toLocaleDateString(),
         isToday: true,
