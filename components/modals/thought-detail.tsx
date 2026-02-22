@@ -10,14 +10,17 @@ interface ThoughtDetailProps {
   onReframe: (thought: Thought) => void
   onTurnToAction: (thought: Thought) => void
   onLetGo: (thought: Thought) => void
+  isReframing: boolean
 }
 
 export function ThoughtDetail({
   thought,
   onClose,
   onReframe,
+
   onTurnToAction,
   onLetGo,
+  isReframing,
 }: ThoughtDetailProps) {
   const config = CATEGORY_CONFIG[thought.category]
 
@@ -84,9 +87,10 @@ export function ThoughtDetail({
         <div className="flex flex-col gap-3">
           <button
             onClick={() => onReframe(thought)}
+            disabled={isReframing}
             className="flex items-center justify-between w-full px-5 py-4 rounded-full border-2 border-solid border-app-green text-foreground transition-all hover:bg-app-green/20 active:scale-[0.98]"
           >
-            <span className="text-base font-medium">Reframe gently</span>
+            <span className="text-base font-medium">{isReframing ? "Reframing..." : "Reframe gently"}</span>
             <Tag className="w-5 h-5 text-muted-foreground" />
           </button>
 

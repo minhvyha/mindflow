@@ -89,6 +89,7 @@ export function AppShell() {
         
         prev.map((t) => (t.id === updatedTask.id ? updatedTask : t))
       )
+      setSelectedTask(null)
     },
     []
   )
@@ -138,9 +139,40 @@ export function AppShell() {
     []
   )
 
-  const handleReframe = useCallback((_thought: Thought) => {
-    setSelectedThought(null)
-  }, [])
+  const [isReframing, setIsReframing] = useState(false)
+
+  const handleReframe = useCallback(
+  async (thought: Thought) => {
+    setIsReframing(true)
+    try {
+      const response = await fetch("/api/reframe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ thought: thought.text, id: thought.id }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to reframe thought")
+      }
+
+      const data = await response.json()
+      console.log("Reframe API response:", data)
+
+      const updatedThought: Thought = data.thought
+
+      setThoughts((prev) => prev.map((t) => (t.id === thought.id ? updatedThought : t)))
+      setSelectedThought(updatedThought)
+      // optionally switch to sorting screen so user can inspect result
+      setActiveScreen("sorting")
+    } catch (error) {
+      console.error("Error reframing thought:", error)
+      alert("Something went wrong while reframing. Please try again.")
+    } finally {
+      setIsReframing(false)
+    }
+  },
+  []
+)
 
   const handleAdd = useCallback(() => {
     setActiveScreen("dumping")
@@ -200,6 +232,7 @@ export function AppShell() {
           onReframe={handleReframe}
           onTurnToAction={handleTurnToAction}
           onLetGo={handleLetGo}
+          isReframing={isReframing}
         />
       )}
 
